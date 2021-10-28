@@ -10,8 +10,8 @@ public class FileReader {
     static ArrayList<String> arrayListOfWords = new ArrayList<String>();
 
 
-    //Viser listen af de ord der er med i spillet.
-    //Hvis filen af ord ikke kan findes, printes "file could not be found".
+    //Shows words from the file and connects them to the game.
+    //If file can't be found = "File could not be found".
     public static void getWords() {
         try {
             Scanner scanner = new Scanner(new File("Ressource/movies.csv"));
@@ -25,7 +25,7 @@ public class FileReader {
         }
     }
 
-    //Få et random ord fra filen:
+    //Get random word from file.
     public static String getRandomWord() {
         String words = arrayListOfWords.get(random.nextInt(arrayListOfWords.size()));
         System.out.println(words); //REMOVE!!!!!!!!!!!!

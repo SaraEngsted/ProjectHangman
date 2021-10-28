@@ -4,6 +4,7 @@ public class HangmanMain {
 
     static Scanner scanner = new Scanner(System.in);
 
+    //Welcome and game rules
     public static void main(String[] args) {
         System.out.println("________________________");
         System.out.println("😈 WELCOME TO HANGMAN 😈");
@@ -18,7 +19,17 @@ public class HangmanMain {
 
         Game hangman = new Game(chosenWord);
         hangman.changeLettersToLines(chosenWord);
+        scanner.nextLine();
+        System.out.println("Please enter a letter to guess the word. You have 6 tries. Good luck!");
+        Game.getPlayersGuess();
+        //String playersGuess = HangmanMain.scanner.nextLine();
+
+
+
+
+
     }
+
 
 
 }
