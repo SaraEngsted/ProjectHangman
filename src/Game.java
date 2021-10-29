@@ -1,68 +1,67 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game extends FileReader {
-    private String wordToGuess;
+
+    static Scanner scanner = new Scanner(System.in);
+    private static String wordToGuess;
     static ArrayList<Character> guesses = new ArrayList<Character>();
-    static int currentLives;
+    static int mistakes;
 
 
     public Game(String chosenWord) {
         super();
         wordToGuess = chosenWord;
-        currentLives = 6;
+        mistakes = 0;
     }
 
 
     //Changes chosen random word to "_".
-    public static void changeLettersToLines(String words) {
+    public static String changeLettersToLines(String words) {
+        String gameStatus = "";
         for (int i = 0; i < words.length(); i++) {
-        if (guesses.contains(words));
-            System.out.print(words.replaceAll(words, ("_")));
-
+            gameStatus = gameStatus + "_";
         }
+        return gameStatus;
     }
 
     //Player guesses letter.
     public static String getPlayersGuess() {
-        String playersGuessLetter = HangmanMain.scanner.nextLine();
+        String playersGuessLetter = scanner.nextLine();
         guesses.add(playersGuessLetter.charAt(0));
 
         return playersGuessLetter;
     }
 
     public static void showGuessedLettersStatus() {
-        System.out.println("Player has guessed " + );
+        System.out.println("Player guessed the letter " + guesses);
     }
 
-    /*
-    public static String gamesWordStatus() {
-        String wordStatus ="";
-        for (int i = 0; i < getRandomWord().length(); i++) {
-            wordStatus = wordStatus + "_";
-        }
-        return wordStatus;
-    }
+    public static String updatedGameStatus(String playerGuessLetter, String gameStatus) {
+        StringBuilder currentGameStatus = new StringBuilder(gameStatus);
 
-     */
-
-
-
-
-/*
-    //Game mode
-    public static void hangman() {
-
-        guesses.add(playersGuess.charAt(0));
-
-        if (getRandomWord().contains(playersGuess)) {
+        for (int i = 0; i < wordToGuess.length(); i++) {
+            if (String.valueOf(wordToGuess.charAt(i)).equals(playerGuessLetter)) {
+                currentGameStatus.setCharAt(i, wordToGuess.charAt(i));
+            }
 
         }
+        gameStatus = currentGameStatus.toString();
 
-
+        return gameStatus;
     }
 
- */
+
+
+
+
+
 
 
 }
+
+
+
+
+
 

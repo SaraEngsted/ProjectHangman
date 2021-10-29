@@ -28,7 +28,6 @@ public class FileReader {
     //Get random word from file.
     public static String getRandomWord() {
         String words = arrayListOfWords.get(random.nextInt(arrayListOfWords.size()));
-        System.out.println(words); //REMOVE!!!!!!!!!!!!
         return words;
     }
 
